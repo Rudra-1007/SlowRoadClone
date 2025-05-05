@@ -87,6 +87,28 @@ body {
     transform: scale(1.2);
 }
 
+#mobileControls {
+    display: none; /* Hide by default */
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 10;
+  }
+  
+  #mobileControls button {
+    font-size: 24px;
+    margin: 5px;
+    padding: 10px;
+  }
+  
+  /* Show on mobile screens */
+  @media (max-width: 768px) {
+    #mobileControls {
+      display: block;
+    }
+  }
+  
+
 #startButton{
     font-family: Sono;
     font-size: 1rem;

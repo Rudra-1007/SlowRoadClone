@@ -263,6 +263,31 @@ function updateObstacles() {
   }
 }
 
+let touchInput = {
+  forward: false,
+  left: false,
+  right: false,
+  boost: false
+};
+
+document.getElementById('forwardBtn').addEventListener('touchstart', () => touchInput.forward = true);
+document.getElementById('forwardBtn').addEventListener('touchend', () => touchInput.forward = false);
+
+document.getElementById('leftBtn').addEventListener('touchstart', () => touchInput.left = true);
+document.getElementById('leftBtn').addEventListener('touchend', () => touchInput.left = false);
+
+document.getElementById('rightBtn').addEventListener('touchstart', () => touchInput.right = true);
+document.getElementById('rightBtn').addEventListener('touchend', () => touchInput.right = false);
+
+document.getElementById('boostBtn').addEventListener('touchstart', () => isBoosting = true);
+document.getElementById('boostBtn').addEventListener('touchend', () => isBoosting = false);
+
+document.getElementById('autoBtn').addEventListener('touchstart', () => {
+  autodrive = !autodrive;
+  document.getElementById("autodriveBtn").innerText = autodrive ? "Disable Autodrive" : "Enable Autodrive";
+});
+
+
 function createStars() {
   const starGeometry = new THREE.SphereGeometry(0.05, 8, 8);
   const starMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
