@@ -102,7 +102,7 @@ body {
   }
   
   /* Show on mobile screens */
-  @media (max-width: 768px) {
+  @media (max-width: 780px) {
     #mobileControls {
       display: block;
     }
