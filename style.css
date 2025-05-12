@@ -1,17 +1,25 @@
 body {
-    margin: 0;
+    position: fixed;
+    left: 0;
     overflow: hidden;
+    top: 0;
+    right: 0;
     font-family: Arial, sans-serif;
-    background-image: url(img/bg_summer_01_b.webp);
+    bottom: 0;
+    z-index: -2;
+    background: url(img/bg_summer_01_b.webp);
+    background-size: cover;
     background-repeat: no-repeat;
-    background-size: 125%;
+    background-position-y: 100%;
+    background-attachment: fixed;
 }
+
 
 #overlay{
     position: absolute;
-    left: 0;
+    left: 0px;
     top: 0;
-    right: 0;
+    right: 0px;
     bottom: 0;
     z-index: -1;
     background: #F4F2ED80;
@@ -98,20 +106,58 @@ body {
   #mobileControls button {
     font-size: 24px;
     margin: 5px;
+    background-color: transparent;
     padding: 10px;
+  }
+
+  #forwardBtn{
+    position: absolute;
+    bottom: 200px;
+    left: 66px;
+  }
+  #backwardBtn{
+    position: absolute;
+    bottom: 67px;
+    left: 66px;
+  }
+
+  #leftBtn{
+    position: absolute;
+    bottom: 133px;
+  }
+
+  #rightBtn{
+    position: absolute;
+    bottom: 133px;
+    left: 133px;
+  }
+
+  #boostBtn{
+    position: absolute;
+    bottom: 133px;
+    left: 66px;
+  }
+
+  #autoBtn{
+    position: absolute;
+    bottom: 360px;
+    border: 1px solid white;
   }
   
   /* Show on mobile screens */
-  @media (max-width: 780px) {
+  @media (max-width: 768px) {
     #mobileControls {
       display: block;
+    }
+    #autodriveBtn{
+        display: none;
     }
   }
   
 
 #startButton{
     font-family: Sono;
-    font-size: 1rem;
+    font-size: 1.5rem;
     cursor: pointer;
     background: #343c3e;
     border: none;
@@ -152,4 +198,8 @@ body {
     font-size: 1em;
     cursor: pointer;
   }
-  
+
+  canvas{
+    margin-top: -7.8px;
+    margin-left: -7.8px;
+  }

@@ -77,10 +77,27 @@ function init() {
       document.getElementById("autodriveBtn").innerText = autodrive ? "Disable Autodrive" : "Enable Autodrive";
     }
     if (key === 'n') toggleNightMode();
+  });
 
-    
+  document.addEventListener('keydown', (e) => {
+    keys[e.key.toLowerCase()] = true;
+  
+    // Also support arrow keys
+    if (e.key === 'ArrowUp') keys['arrowup'] = true;
+    if (e.key === 'ArrowDown') keys['arrowdown'] = true;
+    if (e.key === 'ArrowLeft') keys['arrowleft'] = true;
+    if (e.key === 'ArrowRight') keys['arrowright'] = true;
   });
   
+  document.addEventListener('keyup', (e) => {
+    keys[e.key.toLowerCase()] = false;
+  
+    // Also support arrow keys
+    if (e.key === 'ArrowUp') keys['arrowup'] = false;
+    if (e.key === 'ArrowDown') keys['arrowdown'] = false;
+    if (e.key === 'ArrowLeft') keys['arrowleft'] = false;
+    if (e.key === 'ArrowRight') keys['arrowright'] = false;
+  });  
 
   window.addEventListener('keyup', (e) => { 
     keys[e.key.toLowerCase()] = false; 
@@ -266,6 +283,7 @@ function updateObstacles() {
 let touchInput = {
   forward: false,
   left: false,
+  backward: false,
   right: false,
   boost: false
 };
@@ -281,6 +299,9 @@ document.getElementById('rightBtn').addEventListener('touchend', () => touchInpu
 
 document.getElementById('boostBtn').addEventListener('touchstart', () => isBoosting = true);
 document.getElementById('boostBtn').addEventListener('touchend', () => isBoosting = false);
+
+document.getElementById('backwardBtn').addEventListener('touchstart', () => touchInput.backward = true);
+document.getElementById('backwardBtn').addEventListener('touchend', () => touchInput.backward = false);
 
 document.getElementById('autoBtn').addEventListener('touchstart', () => {
   autodrive = !autodrive;
@@ -433,10 +454,12 @@ function updateCar() {
 
   // Apply movement (z for forward/backward, x for left/right)
   if (!autodrive) {
-    if (keys['w']) car.position.z += moveDistance;
-    if (keys['s']) car.position.z -= moveDistance;
-    if (keys['a']) car.position.x += 0.1;
-    if (keys['d']) car.position.x -= 0.1;
+  if (keys['w'] || keys['arrowup'] || touchInput.forward) car.position.z += moveDistance;
+  if (keys['s'] || keys['arrowdown'] || touchInput.backward) car.position.z -= moveDistance;
+  if (keys['a'] || keys['arrowleft'] || touchInput.left) car.position.x += 0.1;
+  if (keys['d'] || keys['arrowright'] || touchInput.right) car.position.x -= 0.1;
+    
+
   } else {
     car.position.z += moveDistance;
   }
