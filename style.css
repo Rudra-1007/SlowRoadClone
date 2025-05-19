@@ -72,6 +72,7 @@ body {
     background-color: transparent;
     border: 1px solid black;
     border-radius: 20px;
+    font-size: 1rem;
     padding: 9px 9px 9px 9px;
     transition: 0.2s;
     cursor: pointer;
@@ -86,6 +87,7 @@ body {
     background-color: transparent;
     border: 1px solid black;
     border-radius: 20px;
+    font-size: 1rem;
     padding: 9px 9px 9px 9px;
     transition: 0.2s;
     cursor: pointer;
@@ -152,6 +154,14 @@ body {
     #autodriveBtn{
         display: none;
     }
+    #multiplayerScores{
+      position: absolute;
+      right: -330px;
+      text-align: end;
+    }
+    #scoreList{
+      left: 2px;
+    }
   }
   
 
@@ -203,3 +213,7 @@ body {
     margin-top: -7.8px;
     margin-left: -7.8px;
   }
+
+#scoreList{
+  list-style-type: none;
+}

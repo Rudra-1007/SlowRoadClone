@@ -18,9 +18,9 @@
     <div id="hud" style="display: none;">
         <p>Speed: <span id="speed">0</span> km/h</p>
         <p>Distance: <span id="distance">0</span> m</p>
-        <button id="autodriveBtn">Enable Autodrive</button>
+        <button id="autodriveBtn">Enable Autodrive [F]</button>
         <br>
-        <button id="nightToggle" style="margin-top: 15px;">🌙 Night Mode</button>
+        <button id="nightToggle" style="margin-top: 15px;">🌙 Night Mode [N]</button>
         <div id="mobileControls" style="position: fixed; bottom: 10px; left: 10px; z-index: 10;">
             <button id="leftBtn">⬅️</button>
             <button id="rightBtn">➡️</button>
@@ -28,7 +28,11 @@
             <button id="backwardBtn">⬇️</button>
             <button id="boostBtn">⚡</button>
             <button id="autoBtn">🤖</button>
-        </div>      
+        </div>  
+        <div id="multiplayerScores" style="margin-top: 10px; margin-left: 190vh; display: flex-box;">
+            <h3>Multiplayer Scores</h3>
+            <ul id="scoreList"></ul>
+        </div>    
     </div>
     <div id="gameOverScreen" style="display: none;">
         <h1>🚗 Game Over!</h1>
@@ -36,6 +40,7 @@
         <button id="restartButton">Restart</button>
       </div>      
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simplex-noise@3.0.1/"></script>
     <script src="script.js"></script>
 </body>
 </html>
